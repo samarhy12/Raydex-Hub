@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <title>Raydex Hub</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Raydex Hub - Innovative Tech Tools</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <meta
       name="description"
@@ -41,603 +42,707 @@
       content="Join Raydex Hub to access various online tech tools, including coding resources and fun utilities designed for everyone."
     />
     <meta name="twitter:image" content="https://raydexhub.com/img/logo.png" />
-    <!-- Replace with your image URL -->
 
     <!-- Favicons -->
     <link href="img/favicon.ico" rel="icon" />
     <link href="img/apple-touch-icon.png" rel="apple-touch-icon" />
 
-    <!-- Bootstrap CSS File -->
-    <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-
-    <!-- Libraries CSS Files -->
-    <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
-    <link href="lib/animate/animate.min.css" rel="stylesheet" />
-    <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet" />
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
-    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet" />
-
-    <!-- Main Stylesheet File -->
-    <link href="css/style.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap");
+      body {
+        font-family: "Poppins", sans-serif;
+      }
+      .gradient-bg {
+        background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
+      }
+      .gradient-text {
+        background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .floating {
+        animation: floating 3s ease-in-out infinite;
+      }
+      @keyframes floating {
+        0% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+        100% {
+          transform: translateY(0px);
+        }
+      }
+      .mobile-menu {
+        transition: transform 0.3s ease-in-out;
+        transform: translateX(-100%);
+      }
+      .mobile-menu.active {
+        transform: translateX(0);
+      }
+      .tool-card {
+        transition: all 0.3s ease;
+      }
+      .tool-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1),
+          0 8px 10px -6px rgb(0 0 0 / 0.1);
+      }
+    </style>
   </head>
-
-  <body id="page-top">
-    <!--/ Nav Star /-->
-    <nav
-      class="navbar navbar-b navbar-trans navbar-expand-md fixed-top"
-      id="mainNav"
-    >
-      <div class="container">
-        <a class="navbar-brand js-scroll" href="#page-top"
-          ><img src="img/bg.png" class="logo-img" alt="Logo" width="200px"
-        /></a>
-        <button
-          class="navbar-toggler collapsed"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarDefault"
-          aria-controls="navbarDefault"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-        <div
-          class="navbar-collapse collapse justify-content-end"
-          id="navbarDefault"
-        >
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link js-scroll active" href="#home">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll" href="#about">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll" href="#service">Services</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll" href="#work">Tools</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll" href="#contact">Contact</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-    <!--/ Nav End /-->
-
-    <!--/ Intro Skew Star /-->
+  <body class="bg-white text-gray-800">
+    <!-- Mobile Menu -->
     <div
-      id="home"
-      class="intro route bg-image"
-      style="
-        background-image: url(https://plus.unsplash.com/premium_photo-1678565202188-f69b2e593998?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
-      "
+      class="mobile-menu fixed top-0 left-0 h-full w-64 bg-white shadow-lg z-50 md:hidden"
     >
-      <div class="overlay-itro"></div>
-      <div class="intro-content display-table">
-        <div class="table-cell">
-          <div class="container">
-            <!--<p class="display-6 color-d">Hello, world!</p>-->
-            <h1 class="intro-title mb-4">Welcome to Raydex Hub</h1>
-            <p class="intro-subtitle">
-              <span class="text-slider-items"
-                >Your Online Community of Tools,Empowering ideas,One tool at a
-                time, </span
-              ><strong class="text-slider"></strong>
-            </p>
-            <p class="pt-3">
+      <div class="p-6">
+        <div class="flex justify-between items-center mb-8">
+          <span class="text-2xl font-bold text-green-600">Menu</span>
+          <button class="mobile-close-btn text-gray-600">
+            <i class="fas fa-times text-xl"></i>
+          </button>
+        </div>
+        <nav class="space-y-4">
+          <a
+            href="#tools"
+            class="block hover:text-green-600 transition duration-300"
+            >Tools</a
+          >
+          <a
+            href="#services"
+            class="block hover:text-green-600 transition duration-300"
+            >Services</a
+          >
+          <a
+            href="#about"
+            class="block hover:text-green-600 transition duration-300"
+            >About</a
+          >
+          <a
+            href="#contact"
+            class="block hover:text-green-600 transition duration-300"
+            >Contact</a
+          >
+        </nav>
+      </div>
+    </div>
+
+    <header class="fixed w-full z-40 bg-white/90 backdrop-blur-sm shadow-md">
+      <nav class="container mx-auto px-6 py-3">
+        <div class="flex justify-between items-center">
+          <a href="#" class="text-2xl font-bold">
+            <img src="/img/bg.png" alt="Raydex Hub Logo" class="h-12 w-auto" />
+          </a>
+          <div class="hidden md:flex space-x-6">
+            <a
+              href="#tools"
+              class="hover:text-green-600 transition duration-300"
+              >Tools</a
+            >
+            <a
+              href="#services"
+              class="hover:text-green-600 transition duration-300"
+              >Services</a
+            >
+            <a
+              href="#about"
+              class="hover:text-green-600 transition duration-300"
+              >About</a
+            >
+            <a
+              href="#contact"
+              class="hover:text-green-600 transition duration-300"
+              >Contact</a
+            >
+          </div>
+          <button class="mobile-menu-btn md:hidden text-gray-600">
+            <i class="fas fa-bars text-xl"></i>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Hero Section -->
+      <section
+        class="gradient-bg text-white min-h-screen flex items-center relative overflow-hidden"
+        id="hero"
+      >
+        <div class="absolute w-full h-full">
+          <div class="floating absolute top-20 left-10 opacity-20">
+            <i class="fas fa-code text-6xl"></i>
+          </div>
+          <div
+            class="floating absolute bottom-20 right-10 opacity-20"
+            style="animation-delay: 1s"
+          >
+            <i class="fas fa-laptop-code text-6xl"></i>
+          </div>
+          <div
+            class="floating absolute top-1/2 left-1/4 opacity-20"
+            style="animation-delay: 2s"
+          >
+            <i class="fas fa-terminal text-6xl"></i>
+          </div>
+        </div>
+        <div class="container mx-auto px-6 py-24 text-center relative z-10">
+          <h1
+            class="text-5xl md:text-7xl font-bold mb-8 opacity-0"
+            id="hero-title"
+          >
+            Welcome to <span class="text-green-200">Raydex Hub</span>
+          </h1>
+          <p class="text-xl md:text-2xl mb-12 opacity-0" id="hero-subtitle">
+            Innovative Tech Tools for the Modern Developer
+          </p>
+          <a
+            href="#tools"
+            class="bg-white text-green-600 py-3 px-8 rounded-full text-lg font-semibold hover:bg-gray-100 transition duration-300 opacity-0 inline-flex items-center group"
+            id="hero-cta"
+          >
+            Explore Our Tools
+            <i
+              class="fas fa-arrow-right ml-2 group-hover:translate-x-2 transition-transform"
+            ></i>
+          </a>
+        </div>
+      </section>
+
+      <!-- Tools Section -->
+      <section class="py-24 bg-gray-100" id="tools">
+        <div class="container mx-auto px-6">
+          <h2 class="text-4xl font-bold mb-4 text-center">Our Tech Tools</h2>
+          <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+            Empower your development journey with our cutting-edge tools
+            designed for modern developers.
+          </p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="tool-card bg-white p-8 rounded-xl shadow-lg">
+              <div class="text-green-600 mb-6">
+                <i class="fas fa-code text-4xl"></i>
+              </div>
+              <h3 class="text-2xl font-semibold mb-4">Raydex Coding Hub</h3>
+              <p class="text-gray-600 mb-6">
+                An interactive learning platform with real-time coding
+                exercises, tutorials, and AI-powered code assistance.
+              </p>
               <a
-                class="btn btn-success btn js-scroll px-4"
-                href="#work"
-                role="button"
-                >Explore Tools</a
+                href="https://learn.raydexhub.com"
+                class="text-green-600 hover:text-green-700 inline-flex items-center group"
               >
+                Start Learning
+                <i
+                  class="fas fa-arrow-right ml-2 group-hover:translate-x-2 transition-transform"
+                ></i>
+              </a>
+            </div>
+            <div class="tool-card bg-white p-8 rounded-xl shadow-lg">
+              <div class="text-green-600 mb-6">
+                <i class="fas fa-image text-4xl"></i>
+              </div>
+              <h3 class="text-2xl font-semibold mb-4">Background Remover</h3>
+              <p class="text-gray-600 mb-6">
+                Remove backgrounds from images instantly using our advanced AI
+                technology with precision and ease.
+              </p>
+              <a
+                href="https://backgroundremover.raydexhub.com"
+                class="text-green-600 hover:text-green-700 inline-flex items-center group"
+              >
+                Try It Now
+                <i
+                  class="fas fa-arrow-right ml-2 group-hover:translate-x-2 transition-transform"
+                ></i>
+              </a>
+            </div>
+            <div class="tool-card bg-white p-8 rounded-xl shadow-lg">
+              <div class="text-green-600 mb-6">
+                <i class="fas fa-calendar-alt text-4xl"></i>
+              </div>
+              <h3 class="text-2xl font-semibold mb-4">Raydex Scheduler</h3>
+              <p class="text-gray-600 mb-6">
+                Smart task management with AI-powered scheduling and team
+                collaboration features.
+              </p>
+              <a
+                href="https://scheduler.raydexhub.com"
+                class="text-green-600 hover:text-green-700 inline-flex items-center group"
+              >
+                Get Started
+                <i
+                  class="fas fa-arrow-right ml-2 group-hover:translate-x-2 transition-transform"
+                ></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Services Section -->
+      <section class="py-24" id="services">
+        <div class="container mx-auto px-6">
+          <h2 class="text-4xl font-bold mb-4 text-center">Our Services</h2>
+          <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+            Comprehensive solutions tailored to your business needs
+          </p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div
+              class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow"
+            >
+              <div class="text-green-600 mb-6">
+                <i class="fas fa-globe text-4xl"></i>
+              </div>
+              <h3 class="text-2xl font-semibold mb-4">Web Development</h3>
+              <p class="text-gray-700">
+                Create stunning, responsive websites with modern technologies
+                and best practices.
+              </p>
+            </div>
+            <div
+              class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow"
+            >
+              <div class="text-green-600 mb-6">
+                <i class="fas fa-mobile-alt text-4xl"></i>
+              </div>
+              <h3 class="text-2xl font-semibold mb-4">
+                Mobile App Development
+              </h3>
+              <p class="text-gray-700">
+                Build powerful cross-platform mobile applications that users
+                love.
+              </p>
+            </div>
+            <div
+              class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow"
+            >
+              <div class="text-green-600 mb-6">
+                <i class="fas fa-paint-brush text-4xl"></i>
+              </div>
+              <h3 class="text-2xl font-semibold mb-4">UI/UX Design</h3>
+              <p class="text-gray-700">
+                Design beautiful, intuitive interfaces that deliver exceptional
+                user experiences.
+              </p>
+            </div>
+            <div
+              class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow"
+            >
+              <div class="text-green-600 mb-6">
+                <i class="fas fa-cogs text-4xl"></i>
+              </div>
+              <h3 class="text-2xl font-semibold mb-4">
+                Custom Software Solutions
+              </h3>
+              <p class="text-gray-700">
+                Develop tailored software solutions that solve your unique
+                business challenges.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section class="py-24 bg-gray-100" id="about">
+        <div class="container mx-auto px-6">
+          <h2 class="text-4xl font-bold mb-12 text-center">About Raydex Hub</h2>
+          <div class="flex flex-col md:flex-row items-center gap-12">
+            <div class="md:w-1/2">
+              <div class="relative">
+                <div
+                  class="absolute inset-0 bg-green-600 rounded-full opacity-20 blur-xl"
+                ></div>
+                <img
+                  src="/img/ralph.jpg"
+                  alt="Agyarey Raphael Yeboah Wadie"
+                  class="rounded-full relative z-10 hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+            </div>
+            <div class="md:w-1/2">
+              <h3 class="text-2xl font-semibold mb-4">
+                Agyarey Raphael Yeboah Wadie
+              </h3>
+              <p class="text-gray-700 mb-6 leading-relaxed">
+                I'm the founder of Raydex Hub, passionate about creating
+                innovative tech tools that empower developers and businesses.
+                With years of experience in web development and software
+                engineering, I strive to make complex tasks simpler through
+                intuitive design and powerful functionality.
+              </p>
+              <p class="text-gray-700 leading-relaxed">
+                Raydex Hub is more than just a collection of tools – it's a
+                community where developers can find resources, collaborate, and
+                push the boundaries of what's possible in tech.
+              </p>
+              <div class="mt-8 flex space-x-4">
+                <a
+                  href="https://github.com/samarhy12"
+                  class="text-green-600 hover:text-green-700 text-2xl"
+                >
+                  <i class="fab fa-github"></i>
+                </a>
+                <a
+                  href="https://gh.linkedin.com/in/raphael-yeboah-wadie-agyarey-3b6a3a24b"
+                  class="text-green-600 hover:text-green-700 text-2xl"
+                >
+                  <i class="fab fa-linkedin"></i>
+                </a>
+                <a
+                  href="https://x.com/themmatarget"
+                  class="text-green-600 hover:text-green-700 text-2xl"
+                >
+                  <i class="fab fa-twitter"></i>
+                </a>
+                <a
+                  href="https://www.instagram.com/themma_target/"
+                  class="text-green-600 hover:text-green-700 text-2xl"
+                >
+                  <i class="fab fa-instagram"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section class="py-24" id="contact">
+        <div class="container mx-auto px-6">
+          <h2 class="text-4xl font-bold mb-4 text-center">Get in Touch</h2>
+          <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+            Have a question or want to work together? Send us a message!
+          </p>
+          <div class="max-w-md mx-auto">
+            <form class="space-y-6 contactForm" id="contactForm">
+              <div>
+                <label for="name" class="block text-gray-700 font-semibold mb-2"
+                  >Name</label
+                >
+                <div class="relative">
+                  <i
+                    class="fas fa-user absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
+                  ></i>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    class="w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-600"
+                    required
+                  />
+                </div>
+              </div>
+              <div>
+                <label
+                  for="email"
+                  class="block text-gray-700 font-semibold mb-2"
+                  >Email</label
+                >
+                <div class="relative">
+                  <i
+                    class="fas fa-envelope absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
+                  ></i>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    class="w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-600"
+                    required
+                  />
+                </div>
+              </div>
+              <div>
+                <label
+                  for="message"
+                  class="block text-gray-700 font-semibold mb-2"
+                  >Message</label
+                >
+                <div class="relative">
+                  <i
+                    class="fas fa-comment absolute left-3 top-3 text-gray-400"
+                  ></i>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows="4"
+                    class="w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-600"
+                    required
+                  ></textarea>
+                </div>
+              </div>
+              <button
+                type="submit"
+                class="w-full bg-green-600 text-white py-3 px-4 rounded-lg hover:bg-green-700 transition duration-300 flex items-center justify-center group"
+              >
+                <span>Send Message</span>
+                <i
+                  class="fas fa-paper-plane ml-2 group-hover:translate-x-1 transition-transform"
+                ></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="gradient-bg text-white py-12">
+      <div class="container mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+          <div>
+            <h3 class="text-xl font-semibold mb-4">Raydex Hub</h3>
+            <p class="text-green-100">
+              Empowering developers with innovative tools and solutions.
             </p>
           </div>
-        </div>
-      </div>
-    </div>
-    <!--/ Intro Skew End /-->
-
-    <section id="about" class="about-mf sect-pt4 route">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-12">
-            <div class="box-shadow-full">
-              <div class="row">
-                <div class="col-md-12">
-                  <div class="about-me pt-4 pt-md-0">
-                    <div class="title-box-2 text-center">
-                      <h5 class="title-left">About Raydex Hub</h5>
-                    </div>
-                    <p class="lead">
-                      Raydex Hub offers a range of easy-to-use tech tools for
-                      everyone, from developers to casual users. Whether you're
-                      looking for coding resources, design utilities, or fun
-                      games, our platform has tools to simplify your tasks.
-                    </p>
-                    <p class="lead">
-                      Our mission is to empower people through technology,
-                      providing accessible tools that make work easier and
-                      encourage creativity. We believe everyone, regardless of
-                      technical skill, should have access to these resources.
-                    </p>
-                    <p class="lead">
-                      Raydex Hub is where technology and innovation meet. Our
-                      tools are built for simplicity and functionality,
-                      continually updated to meet the needs of a growing
-                      community, and completely free to use.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div>
+            <h3 class="text-xl font-semibold mb-4">Quick Links</h3>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="#tools"
+                  class="text-green-100 hover:text-white transition"
+                  >Tools</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#services"
+                  class="text-green-100 hover:text-white transition"
+                  >Services</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#about"
+                  class="text-green-100 hover:text-white transition"
+                  >About</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#contact"
+                  class="text-green-100 hover:text-white transition"
+                  >Contact</a
+                >
+              </li>
+            </ul>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!--/ Section Services Star /-->
-    <section id="service" class="services-mf route">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-12">
-            <div class="title-box text-center">
-              <h3 class="title-a">Services</h3>
-              <!-- <p class="subtitle-a">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-              </p> -->
-              <div class="line-mf"></div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6">
-            <div class="service-box">
-              <div class="service-ico">
-                <span class="ico-circle"><i class="ion-monitor"></i></span>
-              </div>
-              <div class="service-content">
-                <h2 class="s-title">Custom Tool Development</h2>
-                <p class="s-description text-center">
-                  Do you have a specific project or idea in mind that requires a
-                  custom tool or application? Raydex Hub offers a custom tool
-                  development service, where we work closely with you to
-                  understand your requirements and bring your vision to life.
-                  Developing unique software, or building a web app
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="service-box">
-              <div class="service-ico">
-                <span class="ico-circle"><i class="ion-code-working"></i></span>
-              </div>
-              <div class="service-content">
-                <h2 class="s-title">Web Development and Optimization</h2>
-                <p class="s-description text-center">
-                  As an expert web developers, Raydex Hub offer custom web
-                  development services to create high-performing websites and
-                  web applications. This service is designed to ensure that your
-                  website is not only visually appealing but also optimized for
-                  performance and user experience.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!--/ Section Services End /-->
-
-    <!--/ Section Portfolio Star /-->
-    <section id="work" class="portfolio-mf sect-pt4 route">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-12">
-            <div class="title-box text-center">
-              <h3 class="title-a">Tools</h3>
-              <!-- <p class="subtitle-a">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-              </p> -->
-              <div class="line-mf"></div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-4">
-            <div class="work-box">
-              <a href="img/coming-soon.jpg" data-lightbox="gallery-mf">
-                <div class="work-img">
-                  <img
-                    src="img/coding-hub.jpeg"
-                    alt="raydex coding hub picture"
-                    class="img-fluid"
-                  />
-                </div>
-                <div class="work-content">
-                  <div class="row">
-                    <div class="col-sm-8">
-                      <h2 class="w-title">Raydex Coding Hub</h2>
-                      <div class="w-more">
-                        <span class="w-ctegory">Web App</span> /
-                        <span class="w-date">18 Sep. 2018</span>
-                      </div>
-                    </div>
-                    <div class="col-sm-4">
-                      <div class="w-like">
-                        <span class="ion-ios-plus-outline"></span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+          <div>
+            <h3 class="text-xl font-semibold mb-4">Connect</h3>
+            <div class="flex space-x-4">
+              <a
+                href="https://github.com/samarhy12"
+                class="text-green-100 hover:text-white transition text-xl"
+              >
+                <i class="fab fa-github"></i>
+              </a>
+              <a
+                href="https://gh.linkedin.com/in/raphael-yeboah-wadie-agyarey-3b6a3a24b"
+                class="text-green-100 hover:text-white transition text-xl"
+              >
+                <i class="fab fa-linkedin"></i>
+              </a>
+              <a
+                href="https://x.com/themmatarget"
+                class="text-green-100 hover:text-white transition text-xl"
+              >
+                <i class="fab fa-twitter"></i>
               </a>
             </div>
           </div>
-          <div class="col-md-4">
-            <div class="work-box">
-              <a href="img/coming-soon.jpg" data-lightbox="gallery-mf">
-                <div class="work-img">
-                  <img
-                    src="img/work-2.jpg"
-                    alt="raydex blog picture"
-                    class="img-fluid"
-                  />
-                </div>
-                <div class="work-content">
-                  <div class="row">
-                    <div class="col-sm-8">
-                      <h2 class="w-title">Raydex Blog</h2>
-                      <div class="w-more">
-                        <span class="w-ctegory">Web App</span> /
-                        <span class="w-date">18 Sep. 2018</span>
-                      </div>
-                    </div>
-                    <div class="col-sm-4">
-                      <div class="w-like">
-                        <span class="ion-ios-plus-outline"></span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
+          <div>
+            <h3 class="text-xl font-semibold mb-4">Newsletter</h3>
+            <form class="flex">
+              <input
+                type="email"
+                placeholder="Your email"
+                class="px-4 py-2 rounded-l-lg focus:outline-none flex-1 text-gray-800"
+              />
+              <button
+                type="submit"
+                class="bg-white text-green-600 px-4 py-2 rounded-r-lg hover:bg-gray-100 transition"
+              >
+                <i class="fas fa-arrow-right"></i>
+              </button>
+            </form>
           </div>
-          <div class="col-md-4">
-            <div class="work-box">
-              <a href="img/coming-soon.jpg" data-lightbox="gallery-mf">
-                <div class="work-img">
-                  <img
-                    src="img/work-3.jpg"
-                    alt="memory hub picture"
-                    class="img-fluid"
-                  />
-                </div>
-                <div class="work-content">
-                  <div class="row">
-                    <div class="col-sm-8">
-                      <h2 class="w-title">Memory Hub</h2>
-                      <div class="w-more">
-                        <span class="w-ctegory">Web App</span> /
-                        <span class="w-date">18 Sep. 2018</span>
-                      </div>
-                    </div>
-                    <div class="col-sm-4">
-                      <div class="w-like">
-                        <span class="ion-ios-plus-outline"></span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-          </div>
+        </div>
+        <div class="border-t border-green-500 pt-8 text-center">
+          <p>&copy; 2024 Raydex Hub. All rights reserved.</p>
         </div>
       </div>
-    </section>
-    <!--/ Section Portfolio End /-->
-
-    <div class="container col-xxl-8 px-4 py-5">
-      <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
-        <div class="col-10 col-sm-8 col-lg-6">
-          <img
-            src="img/coding-hub.jpeg"
-            class="d-block mx-lg-auto img-fluid"
-            alt="Bootstrap Themes"
-            width="700"
-            height="500"
-            loading="lazy"
-          />
-        </div>
-        <div class="col-lg-6">
-          <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">
-            Raydex Coding Hub
-          </h1>
-          <p class="lead">
-            The Raydex Coding Hub is the ultimate destination for aspiring and
-            experienced coders alike. Whether you're just starting your coding
-            journey or sharpening your skills, you'll find tutorials,
-            challenges, and hands-on projects that help you grow. Learn multiple
-            programming languages, test your code in real-time, and access a
-            rich library of resources.
-          </p>
-          <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-            <a
-              type="button"
-              class="btn btn-success btn-lg px-4 me-md-2 mr-2"
-              data-lightbox="gallery-mf"
-              href="img/coming-soon.jpg"
-            >
-              Learn more
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="container col-xxl-8 px-4 py-5">
-      <div class="row flex-lg-row align-items-center g-5 py-5">
-        <div class="col-10 col-sm-8 col-lg-6">
-          <img
-            src="img/work-2.jpg"
-            class="d-block mx-lg-auto img-fluid"
-            alt="Bootstrap Themes"
-            width="700"
-            height="500"
-            loading="lazy"
-          />
-        </div>
-        <div class="col-lg-6">
-          <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">
-            Raydex Blog
-          </h1>
-          <p class="lead">
-            A diverse platform where we share news, articles, and insights on a
-            variety of topics that matter in today’s fast-changing world. While
-            our roots are in technology, we cover much more than just the tech
-            industry. From business innovations to lifestyle trends, our blog
-            provides a wide array of content to keep you informed and inspired.
-          </p>
-          <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-            <a
-              type="button"
-              class="btn btn-success btn-lg px-4 me-md-2 mr-2"
-              data-lightbox="gallery-mf"
-              href="img/coming-soon.jpg"
-            >
-              Learn more
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="container col-xxl-8 px-4 py-5">
-      <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
-        <div class="col-10 col-sm-8 col-lg-6">
-          <img
-            src="https://media.istockphoto.com/id/1933376762/photo/bride-throwing-the-bouquet-to-her-friends-on-the-beach-wedding-party.jpg?s=1024x1024&w=is&k=20&c=6fze0eNhsX92pCh5skolndgqmzFT6ZctPsFxpJ8PvC4="
-            class="d-block mx-lg-auto img-fluid"
-            alt="Bootstrap Themes"
-            width="700"
-            height="500"
-            loading="lazy"
-          />
-        </div>
-        <div class="col-lg-6">
-          <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">
-            Memory Hub
-          </h1>
-          <p class="lead">
-            Raydex Memory Hub is a unique platform designed to help you capture,
-            store, and cherish memories from life’s most special moments — all
-            in one place. Whether it’s a wedding, birthday, or any personal
-            milestone, Raydex Memory Hub lets you gather memories effortlessly.
-          </p>
-          <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-            <a
-              type="button"
-              class="btn btn-success btn-lg px-4 me-md-2 mr-2"
-              data-lightbox="gallery-mf"
-              href="img/coming-soon.jpg"
-            >
-              Learn more
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!--/ Section Contact-Footer Star /-->
-    <section
-      class="paralax-mf footer-paralax bg-image sect-mt4 route"
-      style="background-image: url(img/overlay-bg.jpg)"
-    >
-      <div class="overlay-mf"></div>
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-12">
-            <div class="contact-mf">
-              <div id="contact" class="box-shadow-full">
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="title-box-2">
-                      <h5 class="title-left">Message Us</h5>
-                    </div>
-                    <div>
-                      <form id="contact-form" class="contactForm">
-                        <div id="sendmessage">
-                          Your message has been sent. Thank you!
-                        </div>
-                        <div id="errormessage"></div>
-                        <div class="row">
-                          <div class="col-md-12 mb-3">
-                            <div class="form-group">
-                              <input
-                                type="text"
-                                name="name"
-                                class="form-control"
-                                id="name"
-                                placeholder="Your Name"
-                                required
-                              />
-                            </div>
-                          </div>
-                          <div class="col-md-12 mb-3">
-                            <div class="form-group">
-                              <input
-                                type="email"
-                                class="form-control"
-                                name="email"
-                                id="email"
-                                placeholder="Your Email"
-                                required
-                              />
-                            </div>
-                          </div>
-                          <div class="col-md-12 mb-3">
-                            <div class="form-group">
-                              <input
-                                type="text"
-                                class="form-control"
-                                name="subject"
-                                id="subject"
-                                placeholder="Subject"
-                                required
-                              />
-                            </div>
-                          </div>
-                          <div class="col-md-12 mb-3">
-                            <div class="form-group">
-                              <textarea
-                                class="form-control"
-                                name="message"
-                                id="message"
-                                rows="5"
-                                placeholder="Message"
-                                required
-                              ></textarea>
-                            </div>
-                          </div>
-                          <div class="col-md-12">
-                            <button
-                              type="submit"
-                              class="button button-a button-big button-rounded"
-                            >
-                              Send Message
-                            </button>
-                          </div>
-                        </div>
-                      </form>
-                    </div>
-                  </div>
-
-                  <!-- Contact details on the right side -->
-                  <div class="col-md-6">
-                    <div class="title-box-2 pt-4 pt-md-0">
-                      <h5 class="title-left">Get in Touch</h5>
-                    </div>
-                    <div class="more-info">
-                      <p class="lead">
-                        We’d love to hear from you! Whether you have questions,
-                        suggestions,feedback about our community or you need our
-                        service, feel free to reach out!
-                      </p>
-                      <ul class="list-ico">
-                        <li>
-                          <span class="ion-ios-location"></span> NWATIA-KWAHU
-                        </li>
-                        <li>
-                          <span class="ion-ios-telephone"></span> +233 247327173
-                        </li>
-                        <li>
-                          <span class="ion-email"></span>
-                          agyareyraphael@gmail.com
-                        </li>
-                      </ul>
-                    </div>
-                    <div class="socials">
-                      <ul>
-                        <li>
-                          <a
-                            href="https://web.facebook.com/archangel.raphael.965"
-                            ><span class="ico-circle"
-                              ><i class="ion-social-facebook"></i></span
-                          ></a>
-                        </li>
-                        <li>
-                          <a href=""
-                            ><span class="ico-circle"
-                              ><i class="ion-social-instagram"></i></span
-                          ></a>
-                        </li>
-                        <li>
-                          <a href=""
-                            ><span class="ico-circle"
-                              ><i class="ion-social-linkedin"></i></span
-                          ></a>
-                        </li>
-                        <li>
-                          <a href="https://x.com/themmatarget"
-                            ><span class="ico-circle"
-                              ><i class="ion-social-twitter"></i></span
-                          ></a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <footer>
-        <div class="container">
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="copyright-box">
-                <p class="copyright">
-                  &copy; Copyright <strong>Raydex Hub</strong>. All Rights
-                  Reserved
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
-    </section>
-    <!--/ Section Contact-footer End /-->
-
-    <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
-    <div id="preloader"></div>
-
-    <!-- JavaScript Libraries -->
-    <script src="lib/jquery/jquery.min.js"></script>
-    <script src="lib/jquery/jquery-migrate.min.js"></script>
-    <script src="lib/popper/popper.min.js"></script>
-    <script src="lib/bootstrap/js/bootstrap.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/counterup/jquery.waypoints.min.js"></script>
-    <script src="lib/counterup/jquery.counterup.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="lib/lightbox/js/lightbox.min.js"></script>
-    <script src="lib/typed/typed.min.js"></script>
-    <!-- Contact Form JavaScript File -->
-    <script src="contactform/contactform.js"></script>
+    </footer>
+    <script src="script.js"></script>
     <script
       type="text/javascript"
-      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
     ></script>
+    <script type="text/javascript">
+      (function () {
+        emailjs.init({
+          publicKey: "BeWFd4MdlOt4B5_iV",
+        });
+      })();
+    </script>
 
-    <!-- Main Javascript File -->
-    <script src="js/main.js"></script>
+    <script>
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault(); // Prevent the form from submitting and reloading the page
+
+          // Capture form data
+          const name = document.getElementById("name").value;
+          const email = document.getElementById("email").value;
+          const message = document.getElementById("message").value;
+
+          // Send email using EmailJS
+          emailjs
+            .send("service_lr7qwjx", "template_hdsmggq", {
+              name: name,
+              email: email,
+              message: message,
+            })
+            .then(
+              function (response) {
+                alert("Your message has been sent successfully!");
+                document.getElementById("contactForm").reset(); // Reset form after successful submission
+              },
+              function (error) {
+                alert(
+                  "There was an error sending your message: " +
+                    JSON.stringify(error)
+                );
+              }
+            );
+        });
+
+      gsap.registerPlugin(ScrollTrigger);
+
+      // Mobile menu functionality
+      const mobileMenuBtn = document.querySelector(".mobile-menu-btn");
+      const mobileCloseBtn = document.querySelector(".mobile-close-btn");
+      const mobileMenu = document.querySelector(".mobile-menu");
+      const mobileMenuLinks = document.querySelectorAll(".mobile-menu a");
+
+      function toggleMobileMenu() {
+        mobileMenu.classList.toggle("active");
+      }
+
+      mobileMenuBtn.addEventListener("click", toggleMobileMenu);
+      mobileCloseBtn.addEventListener("click", toggleMobileMenu);
+      mobileMenuLinks.forEach((link) => {
+        link.addEventListener("click", toggleMobileMenu);
+      });
+
+      // Hero animations
+      gsap.to("#hero-title", {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        delay: 0.5,
+        ease: "power3.out",
+      });
+
+      gsap.to("#hero-subtitle", {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        delay: 0.8,
+        ease: "power3.out",
+      });
+
+      gsap.to("#hero-cta", {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        delay: 1.1,
+        ease: "power3.out",
+      });
+
+      // Tools section animations
+      gsap.utils.toArray(".tool-card").forEach((card, index) => {
+        gsap.from(card, {
+          opacity: 0,
+          y: 50,
+          duration: 0.8,
+          delay: index * 0.2,
+          scrollTrigger: {
+            trigger: card,
+            start: "top bottom-=100",
+            toggleActions: "play none none reverse",
+          },
+        });
+      });
+
+      // Services section animations
+      gsap.utils.toArray("#services .bg-white").forEach((service, index) => {
+        gsap.from(service, {
+          opacity: 0,
+          x: index % 2 === 0 ? -50 : 50,
+          duration: 0.8,
+          scrollTrigger: {
+            trigger: service,
+            start: "top bottom-=100",
+            toggleActions: "play none none reverse",
+          },
+        });
+      });
+
+      // About section animations
+      gsap.from("#about img", {
+        scale: 0.8,
+        opacity: 0,
+        duration: 1,
+        scrollTrigger: {
+          trigger: "#about",
+          start: "top center",
+          toggleActions: "play none none reverse",
+        },
+      });
+
+      gsap.from("#about .md\\:w-1/2:last-child", {
+        x: 50,
+        opacity: 0,
+        duration: 1,
+        scrollTrigger: {
+          trigger: "#about",
+          start: "top center",
+          toggleActions: "play none none reverse",
+        },
+      });
+
+      // Contact form animations
+      gsap.from("#contact form", {
+        y: 50,
+        opacity: 0,
+        duration: 1,
+        scrollTrigger: {
+          trigger: "#contact",
+          start: "top center",
+          toggleActions: "play none none reverse",
+        },
+      });
+
+      // Smooth scroll for navigation links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          window.scrollTo({
+            top: target.offsetTop - 80,
+            behavior: "smooth",
+          });
+        });
+      });
+    </script>
   </body>
 </html>
